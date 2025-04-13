@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Большой словарь</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Добро пожаловать на сайт в котором есть значения большинства русских слов!</h1>
+        <nav>
+            <ul>
+                <li><a href="#section1">Малоизвестные слова</a></li>
+                <li><a href="#section2">Происхождение некоторых слов</a></li>
+                <li><a href="#section3">Секция 3</a></li>
+                <li><a href="#dictionary">Словарик</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="section1">
+            <h2>Малоизвестные слова</h2>
+            <p>Русский язык — это богатство, которое накапливалось веками. Каждое слово в нем несет в себе историю, культуру и уникальный мир ощущений. </p>
+            <p>Однако с течением времени некоторые слова уходят в небытие, замещаемые современными терминами или заимствованиями из других языков. Я хочу рассказать о малоизвестных русских словах, которые, несмотря на свою редкость, способны передать яркие и точные образы.</p>
+        </section>
+        <section id="section2">
+            <h2>Происхождение некоторых слов</h2>
+            <p>Это еще одна секция.</p>
+            <p></p>
+        </section>
+        <section id="section3">
+            <h2>Секция 3</h2>
+            <p>Наконец, это третья секция.</p>
+            <p></p>
+        </section>
+        <section id="dictionary">
+            <h2>Словарик</h2>
+            <div>
+                <h3>Введите слово:</h3>
+                <input type="text" id="wordInput" maxlength="20" placeholder="Введите слово (макс 20 букв)">
+                <button id="submitBtn">Показать значение</button>
+            </div>
+            <div id="result" style="margin-top: 20px;"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Большой словарь. Все права защищены.</p>
+    </footer>
+
+    <script>
+        const wordDefinitions = {
+            "яблоко": "Круглый фрукт, обычно красного, зеленого или желтого цвета.",
+            "банан": "Длинный желтый фрукт, который обычно едят в сыром виде.",
+            "апельсин": "Цитрусовый фрукт, известный своим кислым вкусом и оранжевым цветом.",
+            "автор": "Создатель литературного или иного художественного произведения, научного труда, проекта, изобретения и т.п."
+        };
+
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            const inputElement = document.getElementById('wordInput');
+            const resultElement = document.getElementById('result');
+            const word = inputElement.value.trim();
+
+            if (word.length > 20) {
+                resultElement.innerHTML = "Ошибка: слово не должно превышать 20 букв.";
+            } else if (wordDefinitions[word]) {
+                resultElement.innerHTML = `Значение слова "${word}": ${wordDefinitions[word]}`;
+            } else {
+                resultElement.innerHTML = `Слово "${word}" не найдено в словаре.`;
+            }
+        });
+    </script>
+</body>
+</html>
